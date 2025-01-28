@@ -23,6 +23,7 @@ body {
 h1, h2 {
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
   color:#ffffff;
+  font-weight: extra-bold;
 }
 h3, .menu-item {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
