@@ -4,7 +4,6 @@ import { Posts } from "@/components/Posts";
 import { SearchField } from "@/components/SearchField";
 import { SocialMedia } from "@/components/SocialMedia";
 import { Subreddits } from "@/components/Subreddits";
-import Image from "next/image";
 
 export default function Home() {
   return (
