@@ -1,4 +1,5 @@
 import { Subreddit } from "./Subreddit";
+import { subreddits } from "../data/subreddits";
 
 export const Subreddits = () => {
   return (
@@ -6,10 +7,9 @@ export const Subreddits = () => {
       <h2 className="text-2xl">Subreddits</h2>
       <nav>
         <ul>
-          <Subreddit />
-          <Subreddit />
-          <Subreddit />
-          <Subreddit />
+          {subreddits.map((subreddit) => (
+            <Subreddit key={subreddit.id} subreddit={subreddit} />
+          ))}
         </ul>
       </nav>
     </aside>
