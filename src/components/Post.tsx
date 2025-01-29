@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { RedditPost } from "@/types/redditType";
+import { pastTimeFormat } from "@/utils/pastTimeFormat";
+import Link from "next/link";
 
 export const Post = ({ post }: { post: RedditPost }) => {
   const isValidUrl = (url: string) => {
@@ -27,13 +29,30 @@ export const Post = ({ post }: { post: RedditPost }) => {
         </div>
       )}
       <p>{post.title || post.selftext }</p>
-      <p>Posted by <b>{post.author}</b> &nbsp; &nbsp; </p>
-      <p>{Math.floor((Date.now() - new Date(post.created_utc * 1000).getTime()) / (1000 * 60 * 60 * 24))} days ago</p>
-      <p>Score: {post.score >= 1000 ? (post.score / 1000).toFixed(1) + 'K' : post.score}</p>
-      <p>Comments: {post.num_comments}</p>
-      <a href={`https://www.reddit.com${post.permalink}`} target="_blank" rel="noreferrer">
-        Read more
-      </a>
+      <p>Posted by <b>{post.author}</b> &nbsp; &nbsp; {pastTimeFormat(post.created_utc)}</p>
+      <p>
+        <Link 
+          href={post.subreddit_name_prefixed}
+          className="font-bold text-lg mt-2"
+        >
+          {post.subreddit_name_prefixed}
+        </Link>  
+      </p>
+      <div className="flex items-center justify-end mt-4">
+        <button className="">
+          <Image src="/arrowWhite.svg" alt="Arrow" width={20} height={20} />
+        </button>      
+        <span className="mx-2"> 
+          {post.score >= 1000 ? (post.score / 1000).toFixed(1) + 'K' : post.score}
+        </span>
+        <button className="" style={{ transform: 'rotate(180deg)' }}>
+          <Image src="/arrowWhite.svg" alt="Arrow" width={20} height={20} />
+        </button>
+        <button className="mr-2 ml-6">
+          <Image src="/commentWhite.svg" alt="Comment" width={20} height={20} />
+        </button>  
+        {post.num_comments}
+      </div>
     </article>
   );
 };

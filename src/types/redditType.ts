@@ -11,6 +11,7 @@ export interface RedditPost {
   thumbnail?: string | null;
   thumbnail_width?: number | null;
   thumbnail_height?: number | null;
+  subreddit_name_prefixed: string;
 }
 
 export interface RedditResponse {

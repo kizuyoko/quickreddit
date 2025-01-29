@@ -1,6 +1,6 @@
 export type subredditType = {
   id: string;
-  title: string;
   display_name: string;
+  subreddit_name: string;
   url: string;
 };
