@@ -16,7 +16,7 @@ export const Post = ({ post }: { post: RedditPost }) => {
   const thumbnailUrl = post.thumbnail && isValidUrl(post.thumbnail) ? post.thumbnail : null;
 
   return (
-    <article className="bg-white p-4 rounded-lg shadow-md w-full">
+    <div className="bg-white p-4 rounded-lg shadow-md w-full h-full">
       {thumbnailUrl && (
         <div style={{ maxWidth: '100%', maxHeight: '100%', overflow: 'hidden' }}>
           <Image
@@ -53,6 +53,6 @@ export const Post = ({ post }: { post: RedditPost }) => {
         </button>  
         {post.num_comments}
       </div>
-    </article>
+    </div>
   );
 };

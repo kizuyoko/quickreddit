@@ -3,9 +3,11 @@ import popularData from "../data/popular.json";
 
 export const Posts = () => {
   return (
-    <div className="flex flex-col gap-4 p-4 max-w-3xl w-full mx-auto justify-center items-center">
+    <div className="grid grid-cols-1 gap-4 p-4 w-full mx-auto md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-[1800]">
       {popularData.data.children.slice(0, 5).map((child, index) => (
-        <Post key={index} post={child.data} />
+        <article key={index} className="flex flex-col h-full">
+          <Post post={child.data} />
+        </article>
       ))}
     </div>  
   );
