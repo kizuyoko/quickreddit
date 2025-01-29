@@ -1,6 +1,6 @@
 //import Link from "next/link"
 import { subredditType } from "@/types/subredditType";
-import Image from "next/image";
+//import Image from "next/image";
 
 export const Subreddit = ({ subreddit }: { subreddit: subredditType }) => {
   if (!subreddit) {
