@@ -27,7 +27,7 @@ h1, h2 {
 }
 h3, .menu-item {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
+  font-weight: 500;
 }
 header {
   background: #272727;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 export const SearchField = () => {
   return (
-    <form className="flex items-center gap-4 bg-white p-4 py-2 rounded-lg shadow-md">
+    <form className="flex items-center gap-4 bg-white p-4 py-2 rounded-lg shadow-md w-full sm:w-96">
       <input type='text' 
         placeholder='Search for Subreddits'
         className='w-full bg-transparent outline-none'

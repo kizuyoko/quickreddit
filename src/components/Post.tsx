@@ -2,6 +2,7 @@ import Image from "next/image";
 import { RedditPost } from "@/types/redditType";
 import { pastTimeFormat } from "@/utils/pastTimeFormat";
 import Link from "next/link";
+import { truncateText } from "@/utils/truncateText";
 
 export const Post = ({ post }: { post: RedditPost }) => {
   const isValidUrl = (url: string) => {
@@ -17,7 +18,7 @@ export const Post = ({ post }: { post: RedditPost }) => {
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md w-full h-full">
-      {thumbnailUrl && (
+       {thumbnailUrl && (
         <div style={{ maxWidth: '100%', maxHeight: '100%', overflow: 'hidden' }}>
           <Image
             src={thumbnailUrl}
@@ -25,11 +26,18 @@ export const Post = ({ post }: { post: RedditPost }) => {
             layout="intrinsic"
             width={post.thumbnail_width || 700}
             height={post.thumbnail_height || 700}
+            className="mb-2"
           />
         </div>
       )}
-      <p>{post.title || post.selftext }</p>
-      <p>Posted by <b>{post.author}</b> &nbsp; &nbsp; {pastTimeFormat(post.created_utc)}</p>
+
+      {post.title && <h3 className="">  
+        {truncateText(post.title, 50)}
+      </h3>}
+      {post.selftext && <p>
+        {truncateText(post.selftext, 50)}
+      </p>}
+      <p className="mt-2">Posted by <b>{post.author}</b> &nbsp; &nbsp; {pastTimeFormat(post.created_utc)}</p>
       <p>
         <Link 
           href={post.subreddit_name_prefixed}
