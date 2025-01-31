@@ -12,6 +12,7 @@ export const Subreddit = ({ subreddit }: { subreddit: subredditType }) => {
       <a 
         href={subreddit.url}
         title={subreddit.subreddit_name}
+        className="text-lg hover:underline"
       >
         {subreddit.display_name}
       </a>

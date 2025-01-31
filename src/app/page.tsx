@@ -1,4 +1,5 @@
 'use client';
+import { metadata } from './metadata';
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { Posts } from "@/components/Posts";
@@ -13,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 w-full">
+      <header className="flex flex-col sm:flex-row items-center justify-between gap-2 p-4 w-full">
         <div className="flex justify-between w-full">
           <Logo />
           <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />

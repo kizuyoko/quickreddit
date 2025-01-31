@@ -18,21 +18,28 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
 }
+
 h1, h2 {
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
-  color:#ffffff;
+  color: #ffffff;
   font-weight: extra-bold;
 }
+
 h3, .menu-item {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
+
 header {
   background: #272727;
   color: #ffffff;
 }
+
 aside {
   background: #464646;
   color: #ffffff;

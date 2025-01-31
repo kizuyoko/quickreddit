@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       'a.thumbs.redditmedia.com',
       'b.thumbs.redditmedia.com',
       'external-preview.redd.it',
+      'preview.redd.it',
     ]
   },
 };

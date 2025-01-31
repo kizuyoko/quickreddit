@@ -1,10 +1,16 @@
+'use client';
 import Image from "next/image";
 import { RedditPost } from "@/types/redditType";
 import { pastTimeFormat } from "@/utils/pastTimeFormat";
 import Link from "next/link";
 import { truncateText } from "@/utils/truncateText";
+import { useState } from "react";
 
-export const Post = ({ post }: { post: RedditPost }) => {
+interface PostProps {
+  post: RedditPost;
+}
+
+export const Post: React.FC<PostProps> = ({ post }) => {
   const isValidUrl = (url: string) => {
     try {
       new URL(url);
@@ -14,39 +20,45 @@ export const Post = ({ post }: { post: RedditPost }) => {
     }
   };
 
-  const thumbnailUrl = post.thumbnail && isValidUrl(post.thumbnail) ? post.thumbnail : null;
+  const [thumbnailUrl, setThumbnailUrl] = useState<string | null>(
+    post.thumbnail && isValidUrl(post.thumbnail) ? post.thumbnail : null
+  );
+
+  const handleImageError = () => {
+    setThumbnailUrl(null);
+  };
+
+  const postTitle = thumbnailUrl ? truncateText(post.title, 50) : truncateText(post.title, 100);
+
+  const postText = thumbnailUrl ? truncateText(post.selftext, 50) : truncateText(post.selftext, 100);
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md w-full h-full">
-       {thumbnailUrl && (
-        <div style={{ maxWidth: '100%', maxHeight: '100%', overflow: 'hidden' }}>
-          <Image
-            src={thumbnailUrl}
-            alt={post.title}
-            layout="intrinsic"
-            width={post.thumbnail_width || 700}
-            height={post.thumbnail_height || 700}
-            className="mb-2"
-          />
-        </div>
-      )}
-
-      {post.title && <h3 className="">  
-        {truncateText(post.title, 50)}
+      {thumbnailUrl ? (
+        <Image
+          src={thumbnailUrl}
+          alt="Post Thumbnail"
+          width={post.thumbnail_width || 150}
+          height={post.thumbnail_height || 150}
+          onError={handleImageError}
+          className="mb-2"
+        />
+      ) : null}
+      {post.title && <h3>  
+        {postTitle}
       </h3>}
       {post.selftext && <p>
-        {truncateText(post.selftext, 50)}
+        {postText}
       </p>}
       <p className="mt-2">Posted by <b>{post.author}</b> &nbsp; &nbsp; {pastTimeFormat(post.created_utc)}</p>
-      <p>
+      <p className="font-bold pt-2">
         <Link 
           href={post.subreddit_name_prefixed}
-          className="font-bold text-lg mt-2"
         >
           {post.subreddit_name_prefixed}
         </Link>  
       </p>
-      <div className="flex items-center justify-end mt-4">
+      <div className="flex items-end justify-end mt-4">
         <button className="">
           <Image src="/arrowWhite.svg" alt="Arrow" width={20} height={20} />
         </button>      

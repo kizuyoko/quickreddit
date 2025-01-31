@@ -1,4 +1,7 @@
-import type { Metadata } from "next";
+'use client';
+
+import { Provider } from 'react-redux';
+import store from '@/store/store';
 import { Montserrat, Open_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -20,11 +23,6 @@ const openSans = Open_Sans({
   weight: ["400", "600"],
 });
 
-export const metadata: Metadata = {
-  title: "Quick Reddit",
-  description: "A Quick Reddit App",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,7 +33,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${poppins.variable} ${openSans.variable} antialiased`}
       >
-        {children}
+        <Provider store={store}>
+          {children}
+        </Provider>
       </body>
     </html>
   );

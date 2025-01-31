@@ -1,4 +1,6 @@
 export interface RedditPost {
+  id: string;
+  content: string;
   title: string;
   author: string;
   subreddit: string;

@@ -1,5 +1,5 @@
 # Quick Reddit #
-This is a React-based web application you can read your favorite [Reddit](https://www.reddit.com/) quickly, connected with [Reddit API](https://www.reddit.com/dev/api/).
+This is a React-based web application you can check the highlights of Reddits [Reddit](https://www.reddit.com/) quickly, connected with [Reddit API](https://www.reddit.com/dev/api/).
 
 ## Stack ##
 - React
