@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchPosts } from '@/data/fetchPosts';
 import { RedditPost } from '@/types/redditType';
 
@@ -27,9 +27,9 @@ const redditSlice = createSlice({
         state.status = 'succeeded';
         state.posts = action.payload;
       })
-      .addCase(fetchPosts.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(fetchPosts.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.payload.error.message;
+        state.error = action.error.message || 'Failed to fetch posts';
       });
   }
 });

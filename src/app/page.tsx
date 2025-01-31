@@ -1,5 +1,5 @@
 'use client';
-import { metadata } from './metadata';
+
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { Posts } from "@/components/Posts";

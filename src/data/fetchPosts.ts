@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { RedditPost } from '@/types/redditType';
 
 interface RedditResponse {
   data: {
     children: Array<{
-      data: any;
+      data: RedditPost;
     }>;
   };
 }
