@@ -8,7 +8,7 @@ export const HamburgerMenu = ({ isOpen, toggleMenu }: HamburgerMenuProps) => {
     <>
       <button
         onClick={toggleMenu}
-        className={`sm:hidden text-2xl transform transition-transform duration-1000 ${isOpen ? 'rotate-90' : ''}`}
+        className={`sm:hidden text-2xl transform transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`}
       >
         {isOpen ? 'X' : '☰'}
       </button>

@@ -5,21 +5,7 @@ import { Posts } from "@/components/Posts";
 import { SearchField } from "@/components/SearchField";
 import { SocialMedia } from "@/components/SocialMedia";
 import { Subreddits } from "@/components/Subreddits";
-
-interface HamburguerMenuProps {
-  isOpen: boolean;
-  toggleMenu: () => void;
-}
-
-export const HamburguerMenu = ({ isOpen, toggleMenu }: HamburguerMenuProps) => {
-  return (
-    <>
-      <button onClick={toggleMenu} className="sm:hidden text-2xl">
-        {isOpen ? 'X' : '☰'}
-      </button>
-    </>
-  );
-};
+import { HamburgerMenu } from "@/components/HamburgerMenu";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +16,7 @@ export default function Home() {
       <header className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 w-full">
         <div className="flex justify-between w-full">
           <Logo />
-          <HamburguerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+          <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
         <div className={`block sm:hidden w-full transition-max-height duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
           <Subreddits />
