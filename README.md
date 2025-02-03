@@ -13,10 +13,11 @@ This is a React-based web application you can check the highlights of Reddits [R
 - Lighthouse
 
 ## Features ##
-- Reddit connection
+- Reddit API
 - Choose category
 - Search Reddits
 - Vote
+- Read comments
 
 ## Links ## 
 - [Wireframes](https://www.figma.com/design/zIQANYhXAmemJGJ90hLyGC/QuickReddit?node-id=1-2&t=RmtW4m94gKsWJ9S3-1)

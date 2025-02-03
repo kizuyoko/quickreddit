@@ -42,6 +42,7 @@ export const Post: React.FC<PostProps> = ({ post }) => {
           height={post.thumbnail_height || 150}
           onError={handleImageError}
           className="mb-2"
+          priority
         />
       ) : null}
       {post.title && <h3>  
