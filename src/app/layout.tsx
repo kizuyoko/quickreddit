@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from '@/store/store';
 import { Montserrat, Open_Sans, Poppins } from "next/font/google";
 import "./globals.css";
+import metadata from './metadata';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -30,6 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+      <title>{metadata.title}</title>
+      <meta name="description" content={metadata.description} />
+      </head>
       <body
         className={`${montserrat.variable} ${poppins.variable} ${openSans.variable} antialiased`}
       >
