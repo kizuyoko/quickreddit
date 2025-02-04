@@ -23,7 +23,7 @@ This is a React-based web application you can check the highlights of Reddits [R
 - [Wireframes](https://www.figma.com/design/zIQANYhXAmemJGJ90hLyGC/QuickReddit?node-id=1-2&t=RmtW4m94gKsWJ9S3-1)
 - [Demo](https://quickreddit.vercel.app/)
 - [GitHub](https://github.com/kizuyoko/quickreddit)
-- [Lighthouse Result](https://pagespeed.web.dev/analysis/https-quickreddit-vercel-app/stgbc98l1w?form_factor=mobile)
+- [Lighthouse Result](https://pagespeed.web.dev/analysis/https-quickreddit-vercel-app/q0gg7v9vvg?form_factor=mobile)
 
 ## How to Install ## 
 You can clon the [repo](https://github.com/kizuyoko/quickreddit):

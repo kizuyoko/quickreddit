@@ -1,6 +1,5 @@
-//import Link from "next/link"
+import Link from "next/link";
 import { subredditType } from "@/types/subredditType";
-//import Image from "next/image";
 
 export const Subreddit = ({ subreddit }: { subreddit: subredditType }) => {
   if (!subreddit) {
@@ -9,13 +8,13 @@ export const Subreddit = ({ subreddit }: { subreddit: subredditType }) => {
 
   return (
     <li className="pb-2">
-      <a 
-        href={subreddit.url}
+      <Link 
+        href={`/subreddits/${subreddit.display_name.toLowerCase()}`}
         title={subreddit.subreddit_name}
         className="text-lg hover:underline"
       >
         {subreddit.display_name}
-      </a>
+      </Link>
     </li>
   );
 };

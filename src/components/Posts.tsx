@@ -6,7 +6,11 @@ import { Post } from "./Post";
 import { RootState, AppDispatch } from '@/store/store';
 import { RedditPost } from '@/types/redditType';
 
-export const Posts: React.FC = () => {
+interface PostsProps {
+  query: string;
+}
+
+export const Posts: React.FC<PostsProps> = ({ query }) => {
   const dispatch: AppDispatch = useDispatch();
   const posts = useSelector((state: RootState) => state.reddit.posts);
   const status = useSelector((state: RootState) => state.reddit.status);
@@ -14,9 +18,9 @@ export const Posts: React.FC = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchPosts());
+      dispatch(fetchPosts(query));
     }
-  }, [status, dispatch]);
+  }, [status, dispatch, query]);
 
   let content;
 

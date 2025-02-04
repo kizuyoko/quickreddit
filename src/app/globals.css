@@ -44,3 +44,7 @@ aside {
   background: #464646;
   color: #ffffff;
 }
+
+.pageTitle {
+  @apply text-xl my-2 mx-4 text-black dark:text-white;
+}
