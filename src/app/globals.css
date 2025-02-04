@@ -45,6 +45,11 @@ aside {
   color: #ffffff;
 }
 
+input {
+  background: #ffffff;
+  color: #000000;
+}
+
 .pageTitle {
   @apply text-xl my-2 mx-4 text-black dark:text-white;
 }

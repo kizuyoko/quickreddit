@@ -6,18 +6,24 @@ interface RedditState {
   posts: RedditPost[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
+  query: string;
 }
 
 const initialState: RedditState = {
   posts: [],
   status: 'idle',
-  error: null
+  error: null,
+  query: 'popular',
 };
 
 const redditSlice = createSlice({
   name: 'reddit',
   initialState,
-  reducers: {},
+  reducers: {
+    setQuery: (state, action: PayloadAction<string>) => {
+      state.query = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPosts.pending, (state) => {
@@ -34,4 +40,5 @@ const redditSlice = createSlice({
   }
 });
 
+export const { setQuery } = redditSlice.actions;
 export default redditSlice.reducer;

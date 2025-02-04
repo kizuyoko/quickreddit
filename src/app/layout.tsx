@@ -45,7 +45,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${montserrat.variable} ${poppins.variable} ${openSans.variable} antialiased`}
-      >
+      ><Provider store={store}>
         <header className="flex flex-col sm:flex-row items-center justify-between gap-2 p-4 w-full">
           <div className="flex justify-between w-full">
             <Logo />
@@ -61,12 +61,12 @@ export default function RootLayout({
           <Subreddits />
         </aside>
         <section className="flex-1 pt-2"> 
-          <Provider store={store}>
+          
             {children}
-          </Provider>
+          
           <SocialMedia />
         </section>
-      </main>
+      </main></Provider>
       </body>
     </html>
   );

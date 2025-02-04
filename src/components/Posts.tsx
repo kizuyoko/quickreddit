@@ -17,15 +17,13 @@ export const Posts: React.FC<PostsProps> = ({ query }) => {
   const error = useSelector((state: RootState) => state.reddit.error);
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchPosts(query));
-    }
-  }, [status, dispatch, query]);
+    dispatch(fetchPosts(query));
+  }, [dispatch, query]);
 
   let content;
 
   if (status === 'loading') {
-    content = <p>Loading...</p>;
+    content = <h2 className='pageTitle'>Loading...</h2>;
   } else if (status === 'succeeded') {
     content = posts.map((post: RedditPost) => (
       <article key={post.id} className="flex flex-col h-full">
@@ -33,7 +31,7 @@ export const Posts: React.FC<PostsProps> = ({ query }) => {
       </article>
     ));
   } else if (status === 'failed') {
-    content = <p>{error}</p>;
+    content = <h2 className='pageTitle'>{error}</h2>;
   }
 
   return (
