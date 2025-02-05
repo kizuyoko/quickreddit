@@ -3,37 +3,42 @@ import { subredditType } from "../types/subredditType";
 export const subreddits: subredditType[] = [
   {
     id: '0',
+    display_name: "Popular",
+    subreddit_name: "r/popular",
+    url: "https://www.reddit.com/r/popular/",
+  },{
+    id: '1',
     display_name: "ReactJS",
     subreddit_name: "r/reactjs",
     url: "https://www.reddit.com/r/reactjs/",
   },
   {
-    id: '1',
+    id: '2',
     display_name: "NextJS",
     subreddit_name: "r/nextjs",
     url: "https://www.reddit.com/r/nextjs/",
   }, {
-    id: '2',
+    id: '3',
     display_name: "TypeScript",
     subreddit_name: "r/typescript",
     url: "https://www.reddit.com/r/typescript/",
   }, {
-    id: '3',
+    id: '4',
     display_name: "JavaScript",
     subreddit_name: "r/javascript",
     url: "https://www.reddit.com/r/javascript/",
   }, {
-    id: '4',
+    id: '5',
     display_name: "TailwindCSS",
     subreddit_name: "r/tailwindcss",
     url: "https://www.reddit.com/r/tailwindcss/",
   }, {
-    id: '5',
+    id: '6',
     display_name: "CSS",
     subreddit_name: "r/css",
     url: "https://www.reddit.com/r/css/",
   }, {
-    id: '6',
+    id: '7',
     display_name: "HTML",
     subreddit_name: "r/html",
     url: "https://www.reddit.com/r/html/",

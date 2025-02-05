@@ -4,12 +4,15 @@ import { subreddits } from "../data/subreddits";
 import { useDispatch } from 'react-redux';
 import { setQuery } from "@/store/redditSlice";
 import { AppDispatch } from "@/store/store";
+import { useSelector } from 'react-redux'; 
+import { RootState } from "@/store/store";
 interface SubredditProps {
   subreddit: subredditType;
 }
 
 export const Subreddit: React.FC<SubredditProps> = ({ subreddit }) => {
   const dispatch: AppDispatch = useDispatch();
+  const currentQuery = useSelector((state: RootState) => state.reddit.query);
 
   if (!subreddit) {
     return null;
@@ -24,7 +27,7 @@ export const Subreddit: React.FC<SubredditProps> = ({ subreddit }) => {
       <button
         onClick={handleSelectSubreddit}
         title={subreddit.subreddit_name}
-        className="text-lg hover:underline"
+        className={`text-lg ${currentQuery === subreddit.display_name.toLowerCase() ? 'underline' : ''} hover:underline`}
       >
         {subreddit.display_name}
       </button>
