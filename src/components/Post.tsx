@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { RedditPost } from "@/types/redditType";
 import { pastTimeFormat } from "@/utils/pastTimeFormat";
-import Link from "next/link";
 import { truncateText } from "@/utils/truncateText";
 import { useState } from "react";
 
@@ -11,7 +10,7 @@ interface PostProps {
 }
 
 export const Post: React.FC<PostProps> = ({ post }) => {
-  const isValidUrl = (url: string) => {
+  const isValidUrl = (url: string): boolean => {
     try {
       new URL(url);
       return true;
@@ -31,6 +30,18 @@ export const Post: React.FC<PostProps> = ({ post }) => {
   const postTitle = thumbnailUrl ? truncateText(post.title, 50) : truncateText(post.title, 100);
 
   const postText = thumbnailUrl ? truncateText(post.selftext, 50) : truncateText(post.selftext, 100);
+
+  const voteUpHandler = () => {
+
+  };
+
+  const voteDownHandler = () => {
+
+  };
+
+  const toggleCommentHandler = () => {
+
+  };
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md w-full h-full">
@@ -53,24 +64,20 @@ export const Post: React.FC<PostProps> = ({ post }) => {
       </p>}
       <p className="mt-2">Posted by <b>{post.author}</b> &nbsp; &nbsp; {pastTimeFormat(post.created_utc)}</p>
       <p className="font-bold pt-2">
-        <Link 
-          href={post.subreddit_name_prefixed}
-        >
-          {post.subreddit_name_prefixed}
-        </Link>  
+        {post.subreddit_name_prefixed}  
       </p>
       <div className="flex items-end justify-end mt-4">
-        <button className="">
-          <Image src="/arrowWhite.svg" alt="Arrow" width={20} height={20} />
+        <button className="" onClick={voteUpHandler}>
+          <Image src="/arrowWhite.svg" alt="UpVote" width={20} height={20} />
         </button>      
-        <span className="mx-2"> 
+        <span className="mx-1"> 
           {post.score >= 1000 ? (post.score / 1000).toFixed(1) + 'K' : post.score}
         </span>
-        <button className="" style={{ transform: 'rotate(180deg)' }}>
-          <Image src="/arrowWhite.svg" alt="Arrow" width={20} height={20} />
+        <button onClick={voteDownHandler}>
+          <Image src="/arrowWhite.svg" alt="DownVote" width={20} height={20} className="rotate-180" />
         </button>
-        <button className="mr-2 ml-6">
-          <Image src="/commentWhite.svg" alt="Comment" width={20} height={20} />
+        <button onClick={toggleCommentHandler} className="mr-1 ml-3">
+          <Image src="/commentWhite.svg" alt="Comment" width={22} height={20} />
         </button>  
         {post.num_comments}
       </div>

@@ -34,9 +34,17 @@ export const Posts: React.FC<PostsProps> = ({ query }) => {
     content = <h2 className='pageTitle'>{error}</h2>;
   }
 
+  const searchQuerySignal = "searchQuerySignal";
+  const queryIsSearch = query.startsWith(searchQuerySignal);
+  const queryForTitle = query.replace(searchQuerySignal, '') 
+  
+  const pageTitle = queryIsSearch
+    ? `Search result: ${queryForTitle}`
+    : `r/${queryForTitle}`;
+
   return (
     <>
-      <h2 className='pageTitle'>r/{query}</h2>
+      <h2 className='pageTitle'>{pageTitle}</h2>
       <div className="grid grid-cols-2 gap-4 p-4 pt-2 w-full mx-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 max-w-[1800] max-[420px]:grid-cols-1">
         {content}
       </div>

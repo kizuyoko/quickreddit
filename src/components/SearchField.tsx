@@ -1,11 +1,19 @@
 import Image from "next/image";
+import { setQuery } from "@/store/redditSlice";
+import { AppDispatch } from "@/store/store";
+import { useDispatch } from 'react-redux';
+
 export const SearchField = () => {
+  const dispatch: AppDispatch = useDispatch();
+
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    const searchQuery = formData.get('search') as string;
-    console.log({ searchQuery }); 
+    const searchInput = formData.get('search') as string;
+    const searchQuery = "searchQuerySignal" + searchInput.replace(/ /g, '%');
+      
+    dispatch(setQuery(searchQuery));
   };
 
   return (
