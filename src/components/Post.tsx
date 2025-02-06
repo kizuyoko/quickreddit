@@ -4,6 +4,7 @@ import { RedditPost } from "@/types/redditType";
 import { pastTimeFormat } from "@/utils/pastTimeFormat";
 import { truncateText } from "@/utils/truncateText";
 import { useState } from "react";
+import thousandToK from "@/utils/thousandToK";
 
 interface PostProps {
   post: RedditPost;
@@ -23,6 +24,12 @@ export const Post: React.FC<PostProps> = ({ post }) => {
     post.thumbnail && isValidUrl(post.thumbnail) ? post.thumbnail : null
   );
 
+  const [voteUpStatus, setVoteUpStatus] = useState(0);
+  const [voteDownStatus, setVoteDownStatus] = useState(0);
+  const [newScore, setNewScore] = useState(post.score);
+  const [upIcon, setUpIcon] = useState('White');
+  const [downIcon, setDownIcon] = useState('White');
+
   const handleImageError = () => {
     setThumbnailUrl(null);
   };
@@ -32,11 +39,58 @@ export const Post: React.FC<PostProps> = ({ post }) => {
   const postText = thumbnailUrl ? truncateText(post.selftext, 50) : truncateText(post.selftext, 100);
 
   const voteUpHandler = () => {
-
+    switch (voteUpStatus) {
+      case 0:
+        setVoteUpStatus(1);
+        setVoteDownStatus(0);
+        setNewScore(newScore + 1);
+        setUpIcon('Black');
+        setDownIcon('White');
+        break;
+      case 1:
+        setVoteUpStatus(0);
+        setVoteDownStatus(0);
+        setNewScore(newScore - 1);
+        setUpIcon('White');
+        setDownIcon('White');
+        break;
+      case -1:
+        setVoteUpStatus(1);
+        setVoteDownStatus(0);
+        setNewScore(newScore + 2);
+        setUpIcon('Black');
+        setDownIcon('White');
+        break;
+    }
+    
   };
 
   const voteDownHandler = () => {
-
+    if (newScore > 0) {
+      switch (voteDownStatus) {
+        case 0:
+          setVoteUpStatus(0);
+          setVoteDownStatus(1);
+          setNewScore(newScore - 1);
+          setUpIcon('White');
+          setDownIcon('Black');
+          break;
+        case 1:
+          setVoteUpStatus(0);
+          setVoteDownStatus(0);
+          setNewScore(newScore + 1);
+          setUpIcon('White');
+          setDownIcon('White');
+          break;
+        case -1:
+          setVoteUpStatus(0);
+          setVoteDownStatus(0);
+          setNewScore(newScore -2);
+          setUpIcon('White');
+          setDownIcon('Black');
+          break;
+      }
+    }
   };
 
   const toggleCommentHandler = () => {
@@ -67,19 +121,19 @@ export const Post: React.FC<PostProps> = ({ post }) => {
         {post.subreddit_name_prefixed}  
       </p>
       <div className="flex items-end justify-end mt-4">
-        <button className="" onClick={voteUpHandler}>
-          <Image src="/arrowWhite.svg" alt="UpVote" width={20} height={20} />
+        <button onClick={voteUpHandler}>
+          <Image src={`/arrow${upIcon}.svg`} alt="UpVote" width={20} height={20} />
         </button>      
         <span className="mx-1"> 
-          {post.score >= 1000 ? (post.score / 1000).toFixed(1) + 'K' : post.score}
+          {thousandToK(newScore)}
         </span>
         <button onClick={voteDownHandler}>
-          <Image src="/arrowWhite.svg" alt="DownVote" width={20} height={20} className="rotate-180" />
+          <Image src={`/arrow${downIcon}.svg`} alt="DownVote" width={20} height={20} className="rotate-180" />
         </button>
         <button onClick={toggleCommentHandler} className="mr-1 ml-3">
           <Image src="/commentWhite.svg" alt="Comment" width={22} height={20} />
         </button>  
-        {post.num_comments}
+        {thousandToK(post.num_comments)}
       </div>
     </div>
   );
