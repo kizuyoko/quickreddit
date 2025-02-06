@@ -25,18 +25,18 @@ export const Posts: React.FC<PostsProps> = ({ query }) => {
   if (status === 'loading') {
     content = <h2 className='pageTitle'>Loading...</h2>;
   } else if (status === 'succeeded') {
-    content = posts.map((post: RedditPost) => (
-      <article key={post.id} className="flex flex-col h-full">
+    content = posts?.length ? posts.map((post: RedditPost) => (
+      <article key={post?.id} className="flex flex-col h-full">
         <Post post={post} />
       </article>
-    ));
+    )) : <h2 className='pageTitle'>No posts found</h2>;
   } else if (status === 'failed') {
     content = <h2 className='pageTitle'>{error}</h2>;
   }
 
   const searchQuerySignal = "searchQuerySignal";
   const queryIsSearch = query.startsWith(searchQuerySignal);
-  const queryForTitle = query.replace(searchQuerySignal, '') 
+  const queryForTitle = query.replace(searchQuerySignal, '').replace(/%/g, ' ');
   
   const pageTitle = queryIsSearch
     ? `Search result: ${queryForTitle}`

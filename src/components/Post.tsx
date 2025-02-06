@@ -11,6 +11,17 @@ interface PostProps {
 }
 
 export const Post: React.FC<PostProps> = ({ post }) => {
+  const [thumbnailUrl, setThumbnailUrl] = useState<string | null>(null);
+  const [voteUpStatus, setVoteUpStatus] = useState(0);
+  const [voteDownStatus, setVoteDownStatus] = useState(0);
+  const [newScore, setNewScore] = useState(post?.score ?? 0);
+  const [upIcon, setUpIcon] = useState('White');
+  const [downIcon, setDownIcon] = useState('White');
+
+  if (!post) {
+    return null;
+  }
+
   const isValidUrl = (url: string): boolean => {
     try {
       new URL(url);
@@ -20,15 +31,10 @@ export const Post: React.FC<PostProps> = ({ post }) => {
     }
   };
 
-  const [thumbnailUrl, setThumbnailUrl] = useState<string | null>(
-    post.thumbnail && isValidUrl(post.thumbnail) ? post.thumbnail : null
-  );
-
-  const [voteUpStatus, setVoteUpStatus] = useState(0);
-  const [voteDownStatus, setVoteDownStatus] = useState(0);
-  const [newScore, setNewScore] = useState(post.score);
-  const [upIcon, setUpIcon] = useState('White');
-  const [downIcon, setDownIcon] = useState('White');
+  // Initialize thumbnailUrl after hooks
+  if (thumbnailUrl === null && post.thumbnail && isValidUrl(post.thumbnail)) {
+    setThumbnailUrl(post.thumbnail);
+  }
 
   const handleImageError = () => {
     setThumbnailUrl(null);
@@ -110,16 +116,14 @@ export const Post: React.FC<PostProps> = ({ post }) => {
           priority
         />
       ) : null}
-      {post.title && <h3>  
-        {postTitle}
-      </h3>}
-      {post.selftext && <p>
-        {postText}
-      </p>}
-      <p className="mt-2">Posted by <b>{post.author}</b> &nbsp; &nbsp; {pastTimeFormat(post.created_utc)}</p>
+      {post?.title && <h3>{postTitle}</h3>}
+      {post?.selftext && <p>{postText}</p>}
       <p className="font-bold pt-2">
-        {post.subreddit_name_prefixed}  
+        {post?.subreddit_name_prefixed}  
       </p>
+      <p className="pt-1">Posted by <b>{post?.author}</b></p> 
+      <p>{pastTimeFormat(post?.created_utc)}</p>
+      
       <div className="flex items-end justify-end mt-4">
         <button onClick={voteUpHandler}>
           <Image src={`/arrow${upIcon}.svg`} alt="UpVote" width={20} height={20} />

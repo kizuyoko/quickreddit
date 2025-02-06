@@ -11,9 +11,10 @@ export const SearchField = () => {
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     const searchInput = formData.get('search') as string;
-    const searchQuery = "searchQuerySignal" + searchInput.replace(/ /g, '%');
-      
-    dispatch(setQuery(searchQuery));
+    if (searchInput.length > 0) {
+      const searchQuery = "searchQuerySignal" + searchInput.replace(/ /g, '%'); 
+      dispatch(setQuery(searchQuery));
+    }
   };
 
   return (
@@ -23,7 +24,7 @@ export const SearchField = () => {
     >
       <input
         name='search'
-        placeholder='Search for Subreddits'
+        placeholder='Search'
         className='w-full bg-transparent outline-none'
       />
       <button type='submit'>
