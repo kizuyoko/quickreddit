@@ -46,7 +46,7 @@ export const Post: React.FC<PostProps> = ({ post }) => {
           src={post.thumbnail as string}
           width={post.thumbnail_width || 100}
           height={post.thumbnail_height || 100}
-          priority={post.thumbnail?.includes('b.thumbs.redditmedia.com') ? true : false}
+          priority={post.thumbnail?.includes('a.thumbs.redditmedia.com') ? true : false}
         />
       }
       {post?.title && <h3>{postTitle}</h3>}
