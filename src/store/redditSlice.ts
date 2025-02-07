@@ -13,7 +13,7 @@ const initialState: RedditState = {
   posts: [],
   status: 'idle',
   error: null,
-  query: 'nextjs',
+  query: 'popular',
 };
 
 const redditSlice = createSlice({

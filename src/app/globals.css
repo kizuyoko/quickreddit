@@ -20,17 +20,19 @@ body {
   font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4;
-  word-wrap: break-word; 
-  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
   color: #ffffff;
   font-weight: extra-bold;
 }
 
-h3, .menu-item {
+h3,
+.menu-item {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
@@ -48,6 +50,10 @@ aside {
 input {
   background: #ffffff;
   color: #000000;
+}
+
+img {
+  aspect-ratio: attr(width) / attr(height);
 }
 
 .pageTitle {
