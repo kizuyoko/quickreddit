@@ -60,7 +60,12 @@ export const Post: React.FC<PostProps> = ({ post }) => {
       <div className="flex items-end justify-end mt-4">
         <Voting initialScore={post?.score ?? 0} />
         <button onClick={toggleCommentHandler} className="mr-1 ml-3">
-          <Image src="/commentWhite.svg" alt="Comment" width={22} height={20} />
+          <Image 
+            src="/commentWhite.svg" 
+            alt="Comment" 
+            width={22} height={20} 
+            loading="lazy"
+          />
         </button>  
         {thousandToK(post.num_comments)}
       </div>

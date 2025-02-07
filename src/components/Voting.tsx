@@ -64,13 +64,23 @@ export const Voting: React.FC<VotingProps> = ({ initialScore }) => {
   return (
     <div className="flex items-center">
       <button onClick={voteUpHandler}>
-        <Image src={`/arrow${upIcon}.svg`} alt="UpVote" width={20} height={20} />
+        <Image 
+          src={`/arrow${upIcon}.svg`} 
+          alt="UpVote" 
+          width={20} height={20} 
+          loading="lazy"
+        />
       </button>      
       <span className="mx-1"> 
         {thousandToK(newScore)}
       </span>
       <button onClick={voteDownHandler}>
-        <Image src={`/arrow${downIcon}.svg`} alt="DownVote" width={20} height={20} className="rotate-180" />
+        <Image  
+          src={`/arrow${downIcon}.svg`}   alt="DownVote" 
+          width={20} height={20} 
+          className="rotate-180"
+          loading="lazy" 
+        />
       </button>
     </div>
   );
