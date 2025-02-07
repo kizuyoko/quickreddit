@@ -1,10 +1,11 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     domains: [
-      'a.thumbs.redditmedia.com',
       'b.thumbs.redditmedia.com', 
-      'external-preview.redd.it',
-      'preview.redd.it',
+      'a.thumbs.redditmedia.com',
     ],
   },
 };
+
+export default nextConfig;
