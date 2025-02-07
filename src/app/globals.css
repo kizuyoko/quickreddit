@@ -22,28 +22,23 @@ body {
   line-height: 1.4;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  font-display: swap;
 }
 
 h1,
 h2 {
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
   color: #ffffff;
-  font-weight: extra-bold;
+  font-weight: 800;
 }
 
-h3,
-.menu-item {
+h3 {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 
 header {
   background: #272727;
-  color: #ffffff;
-}
-
-aside {
-  background: #464646;
   color: #ffffff;
 }
 

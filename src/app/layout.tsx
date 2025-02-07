@@ -20,7 +20,7 @@ const montserrat = Montserrat({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"], 
-  weight: ["400", "500"],
+  weight: ["500"],
 });
 
 const openSans = Open_Sans({
@@ -57,16 +57,15 @@ export default function RootLayout({
           <SearchField />
         </header>
         <main className="flex">
-        <aside className="hidden sm:block w-48">
-          <Subreddits />
-        </aside>
-        <section className="flex-1 pt-2"> 
-          
+          <aside className="hidden sm:block w-48">
+            <Subreddits />
+          </aside>
+          <section className="flex-1 pt-2"> 
             {children}
-          
-          <SocialMedia />
-        </section>
-      </main></Provider>
+          </section>
+        </main>
+        <SocialMedia />
+        </Provider>
       </body>
     </html>
   );
