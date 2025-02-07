@@ -3,21 +3,16 @@ import { subredditType } from "../types/subredditType";
 export const subreddits: subredditType[] = [
   {
     id: '0',
-    display_name: "Popular",
-    subreddit_name: "r/popular",
-    url: "https://www.reddit.com/r/popular/",
-  },{
+    display_name: "NextJS",
+    subreddit_name: "r/nextjs",
+    url: "https://www.reddit.com/r/nextjs/",
+  }, {
     id: '1',
     display_name: "ReactJS",
     subreddit_name: "r/reactjs",
     url: "https://www.reddit.com/r/reactjs/",
   },
   {
-    id: '2',
-    display_name: "NextJS",
-    subreddit_name: "r/nextjs",
-    url: "https://www.reddit.com/r/nextjs/",
-  }, {
     id: '3',
     display_name: "TypeScript",
     subreddit_name: "r/typescript",
