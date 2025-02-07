@@ -5,7 +5,7 @@ import { fetchPosts } from '@/data/fetchPosts';
 import { Post } from "./Post";
 import { RootState, AppDispatch } from '@/store/store';
 import { RedditPost } from '@/types/redditType';
-
+import { SocialMedia } from './SocialMedia';
 interface PostsProps {
   query: string;
 }
@@ -44,7 +44,10 @@ export const Posts: React.FC<PostsProps> = ({ query }) => {
 
   return (
     <>
-      <h2 className='pageTitle'>{pageTitle}</h2>
+      <div className='flex'>
+        <h2 className='pageTitle flex-1'>{pageTitle}</h2>
+        <SocialMedia />
+      </div>
       <div className="grid grid-cols-2 gap-4 p-4 pt-2 w-full mx-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 max-w-[1800] max-[420px]:grid-cols-1">
         {content} <button>fdfsfsfsd</button>
       </div>

@@ -9,7 +9,6 @@ import { Logo } from "@/components/Logo";
 import { HamburgerMenu } from "@/components/HamburgerMenu";
 import { SearchField } from "@/components/SearchField";
 import { Subreddits } from "@/components/Subreddits";
-import { SocialMedia } from "@/components/SocialMedia";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -45,26 +44,26 @@ export default function RootLayout({
       </head>
       <body
         className={`${montserrat.variable} ${poppins.variable} ${openSans.variable} antialiased`}
-      ><Provider store={store}>
-        <header className="flex flex-col sm:flex-row items-center justify-between gap-2 p-4 w-full">
-          <div className="flex justify-between w-full">
-            <Logo />
-            <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
-          </div>
-          <div className={`block sm:hidden w-full transition-max-height duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
-            <Subreddits />
-          </div>
-          <SearchField />
-        </header>
-        <main className="flex">
-          <aside className="hidden sm:block w-48">
-            <Subreddits />
-          </aside>
-          <section className="flex-1 pt-2"> 
-            {children}
-          </section>
-        </main>
-        <SocialMedia />
+      >
+        <Provider store={store}>
+          <header className="flex flex-col sm:flex-row items-center justify-between gap-2 p-4 w-full">
+            <div className="flex justify-between w-full">
+              <Logo />
+              <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+            </div>
+            <div className={`block sm:hidden w-full transition-max-height duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
+              <Subreddits />
+            </div>
+            <SearchField />
+          </header>
+          <main className="flex">
+            <aside className="hidden sm:block w-48">
+              <Subreddits />
+            </aside>
+            <section className="flex-1 pt-2"> 
+              {children}
+            </section>
+          </main>
         </Provider>
       </body>
     </html>

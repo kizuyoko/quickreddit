@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const SocialMedia = () => {
   return (
-    <footer className="flex gap-4 justify-end p-4 pt-0">
+    <footer className="flex gap-2 justify-end px-4">
       <a
         className="flex items-center gap-2 hover:underline hover:underline-offset-4"
         href="https://github.com/kizuyoko/quickreddit"
@@ -11,20 +11,20 @@ export const SocialMedia = () => {
         <Image
           src="/github.svg"
           alt="GitHub"
-          width={40}
-          height={39}
+          width={30}
+          height={30}
         />
       </a>
       <a
-        className="flex items-center gap-2"
+        className="flex items-center"
         href="https://www.linkedin.com/in/kizuyoko/"
         target="_blank"
       >
         <Image
           src="/linkedin.svg"
           alt="LinkedIn"
-          width={40}
-          height={40}
+          width={30}
+          height={30}
         />
       </a>
     </footer>

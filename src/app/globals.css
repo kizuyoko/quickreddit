@@ -42,6 +42,11 @@ header {
   color: #ffffff;
 }
 
+aside {
+  background: #464646;
+  color: #ffffff;
+}
+
 input {
   background: #ffffff;
   color: #000000;
