@@ -33,12 +33,9 @@ export const Post: React.FC<PostProps> = ({ post }) => {
   const postTitle = post.thumbnail ? truncateText(post.title, 50) : truncateText(post.title, 100);
   const postText = post.thumbnail ? truncateText(post.selftext, 50) : truncateText(post.selftext, 100);
 
-  const toggleCommentHandler = () => {
-
-  };
-
   return (
     <div className="bg-white p-4 rounded-lg shadow-md w-full h-full">
+      <a href={post.url} target="_blank">
       {
         isValidThumbnail(post.thumbnail) && <Image 
           alt={truncateText(post.title, 10) || truncateText(post.selftext, 10)}
@@ -46,10 +43,12 @@ export const Post: React.FC<PostProps> = ({ post }) => {
           width={post.thumbnail_width || 100}
           height={post.thumbnail_height || 100}
           loading="lazy"
+          className="pb-2"
         />
       }
       {post?.title && <h3>{postTitle}</h3>}
       {post?.selftext && <p>{postText}</p>}
+      </a>
       <p className="font-bold pt-2">
         {post?.subreddit_name_prefixed}  
       </p>
@@ -58,14 +57,13 @@ export const Post: React.FC<PostProps> = ({ post }) => {
       
       <div className="flex items-end justify-end mt-4">
         <Voting initialScore={post?.score ?? 0} />
-        <button onClick={toggleCommentHandler} className="mr-1 ml-3">
-          <Image 
-            src="/commentWhite.svg" 
-            alt="Comment" 
-            width={22} height={20} 
-            loading="lazy"
-          />
-        </button>  
+        <Image 
+          src="/commentWhite.svg" 
+          alt="Comment" 
+          width={22} height={20} 
+          loading="lazy" 
+          className="mr-1 ml-3"
+        />
         {thousandToK(post.num_comments)}
       </div>
     </div>
