@@ -39,7 +39,7 @@ export const Post: React.FC<PostProps> = ({ post, isPriority = false }) => {
       <a href={post.url} target="_blank">
       {
         isValidThumbnail(post.thumbnail) && <Image 
-          alt={truncateText(post.title, 10) || truncateText(post.selftext, 10)}
+          alt={truncateText(post.title, 30) || truncateText(post.selftext, 30)}
           src={post.thumbnail as string}
           width={post.thumbnail_width || 100}
           height={post.thumbnail_height || 100}
