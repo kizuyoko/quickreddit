@@ -7,9 +7,10 @@ import { Voting } from "./Voting";
 
 interface PostProps {
   post: RedditPost;
+  isPriority?: boolean;
 }
 
-export const Post: React.FC<PostProps> = ({ post }) => {
+export const Post: React.FC<PostProps> = ({ post, isPriority = false }) => {
   if (!post) {
     return null;
   }
@@ -42,7 +43,8 @@ export const Post: React.FC<PostProps> = ({ post }) => {
           src={post.thumbnail as string}
           width={post.thumbnail_width || 100}
           height={post.thumbnail_height || 100}
-          loading="lazy"
+          loading={isPriority ? undefined : "lazy"}
+          priority={isPriority}
           className="pb-2"
         />
       }

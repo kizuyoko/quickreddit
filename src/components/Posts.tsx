@@ -25,9 +25,19 @@ export const Posts: React.FC<PostsProps> = ({ query }) => {
   if (status === 'loading') {
     content = <h2 className='pageTitle'>Loading...</h2>;
   } else if (status === 'succeeded') {
+    // Find the post with largest thumbnail
+    const largestThumbnailPost = posts?.reduce((max, post) => {
+      const currentSize = (post.thumbnail_width || 0) * (post.thumbnail_height || 0);
+      const maxSize = (max?.thumbnail_width || 0) * (max?.thumbnail_height || 0);
+      return currentSize > maxSize ? post : max;
+    }, posts[0]);
+
     content = posts?.length ? posts.map((post: RedditPost) => (
       <article key={post?.id} className="flex flex-col h-full">
-        <Post post={post} />
+        <Post 
+          post={post} 
+          isPriority={post.id === largestThumbnailPost?.id}
+        />
       </article>
     )) : <h2 className='pageTitle'>No posts found</h2>;
   } else if (status === 'failed') {

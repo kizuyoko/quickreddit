@@ -1,6 +1,6 @@
 # Quick Reddit
 
-This is a React-based web application you can check the highlights of Reddits [Reddit](https://www.reddit.com/) quickly, connected with [Reddit API](https://www.reddit.com/dev/api/).
+This is a React-based web application you can check the highlights of Reddits [Reddit](https://www.reddit.com/) quickly, connected with [Reddit API](https://www.reddit.com/dev/api/). My challenge was NextJS with best practice for SEO with Lighthouse and TDD with Jest and React Test Libraray.
 
 ## Stack
 
@@ -21,6 +21,7 @@ This is a React-based web application you can check the highlights of Reddits [R
 - Search Reddits
 - Vote
 - Read comments
+- Responsive Design
 
 ## Links
 
