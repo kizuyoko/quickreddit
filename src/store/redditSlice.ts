@@ -1,13 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchPosts } from '@/data/fetchPosts';
-import { RedditPost } from '@/types/redditType';
-
-interface RedditState {
-  posts: RedditPost[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-  query: string;
-}
+import { RedditPost, RedditState } from '@/types/redditType';
 
 const initialState: RedditState = {
   posts: [],
@@ -22,6 +15,15 @@ const redditSlice = createSlice({
   reducers: {
     setQuery: (state, action: PayloadAction<string>) => {
       state.query = action.payload;
+    },
+    setPosts: (state, action: PayloadAction<RedditPost[]>) => {
+      state.posts = action.payload;
+    },
+    setStatus: (state, action: PayloadAction<'idle' | 'loading' | 'succeeded' | 'failed'>) => {
+      state.status = action.payload;
+    },
+    setError: (state, action: PayloadAction<string | null>) => {
+      state.error = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -40,5 +42,5 @@ const redditSlice = createSlice({
   }
 });
 
-export const { setQuery } = redditSlice.actions;
+export const { setQuery, setPosts, setStatus, setError } = redditSlice.actions;
 export default redditSlice.reducer;

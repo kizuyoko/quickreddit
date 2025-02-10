@@ -32,3 +32,10 @@ export interface RedditResponse {
     before: string | null;
   };
 }
+
+export interface RedditState {
+  posts: RedditPost[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+  query: string;
+}
