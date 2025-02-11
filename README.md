@@ -1,26 +1,26 @@
 # Quick Reddit
 
-This is a React-based web application you can check the highlights of Reddits [Reddit](https://www.reddit.com/) quickly, connected with [Reddit API](https://www.reddit.com/dev/api/). My challenge was NextJS with best practice for SEO with Lighthouse and TDD with Jest and React Test Libraray.
+Quick Reddit is a React-based web application that lets you explore trending posts from [Reddit](https://www.reddit.com) at a glance. Built with [Next.js](https://nextjs.org), it follows best practices for SEO and performance optimization, ensuring a smooth user experience. The project also embraces Test-Driven Development (TDD) using Jest and React Testing Library.
 
 ## Stack
 
-- React
-- Redux
-- TypeScript
-- NextJS
-- Jest
-- React Test Library
-- Tailwind
-- Figma
-- Lighthouse
+- **React** – Component-based UI development
+- **Redux** – State management
+- **TypeScript** – Type safety and better development experience
+- **Next.js** – SEO optimization and server-side rendering
+- **Jest** – Unit testing framework
+- **React Testing Library** – UI component testing
+- **Tailwind CSS** – Utility-first styling
+- **Figma** – UI/UX design
+- **Lighthouse** – Performance and accessibility analysis
 
 ## Features
 
-- Reddit API
-- Choose category
-- Search Reddits
-- Vote
-- Responsive Design
+- **[Reddit API](https://www.reddit.com/dev/api/)** - Fetching reddits
+- **Category** - Browse post
+- **Search Reddits** with key words
+- **Vote** on posts
+- **Responsive Design** for all devises, **Dark mode** adjustment
 - Read comments (Comming soon)
 
 ## Links
@@ -48,4 +48,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Contact
 
+Any feedback or tips are welcome!
 [LinkedIn](https://www.linkedin.com/in/kizuyoko/)
