@@ -20,8 +20,8 @@ This is a React-based web application you can check the highlights of Reddits [R
 - Choose category
 - Search Reddits
 - Vote
-- Read comments
 - Responsive Design
+- Read comments (Comming soon)
 
 ## Links
 

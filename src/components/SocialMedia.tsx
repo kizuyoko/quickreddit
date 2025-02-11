@@ -13,6 +13,7 @@ export const SocialMedia = () => {
           alt="GitHub"
           width={30}
           height={30}
+          className="dark:filter dark:invert"
         />
       </a>
       <a
@@ -25,6 +26,7 @@ export const SocialMedia = () => {
           alt="LinkedIn"
           width={30}
           height={30}
+          className="dark:filter dark:invert"
         />
       </a>
     </footer>
